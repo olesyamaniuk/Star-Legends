@@ -20,18 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   );
 });
+
 function toggleAnswer(element) {
-  const answer = element.nextElementSibling;
+  const faqItem = element.closest(".faq-item");
+  const answer = faqItem.querySelector(".faq-answer"); 
   const buttonImg = element.querySelector(".toggle-button img"); 
 
-  if (answer.style.display === "none" || answer.style.display === "") {
-    answer.style.display = "block";
-    buttonImg.src = "/img/faq/arrow.png"; 
-  } else {
+  if (faqItem.classList.contains("open")) {
+    faqItem.classList.remove("open");
     answer.style.display = "none";
-    buttonImg.src = "/img/faq/icon.png"; 
+    buttonImg.src = "/image/Group 53.png";
+  } else {
+    faqItem.classList.add("open");
+    answer.style.display = "block";
+    buttonImg.src = "/image/Group 53 (1).png";
   }
 }
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
